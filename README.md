@@ -1,2 +1,2 @@
 # Brick-Breaker
- Brick Breaker is a simple java (swing) application game project.
+ Brick Breaker is a simple java (swing/desktop) application game project.
