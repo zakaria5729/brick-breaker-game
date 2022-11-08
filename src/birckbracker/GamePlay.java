@@ -34,6 +34,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
 
     public GamePlay() {
         mapPlay = new MapGenerator(4, 10);
+        
 
         addKeyListener(this);
         setFocusable(true);
@@ -44,6 +45,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
 
     @Override
     public void paint(Graphics graphics) {
+        GamePaint gamePaint = new GamePaint(graphics);
+
         //background
         graphics.setColor(Color.black);
         graphics.fillRect(1, 1, 692, 592);
@@ -112,11 +115,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
             graphics.setFont(new Font("serif", Font.BOLD, 20));
             graphics.drawString("Press Enter to Restart..", 230, 330);
 
-            //above score hiding
-            graphics.setColor(Color.black);
-            graphics.setFont(new Font("serif", Font.BOLD, 22));
-            graphics.drawString("Score: " + score + "/200", 490, 30);
-
+            gamePaint.aboveScoreHiding(score);
+            
             //hide remains bricks
             mapPlay.draw((Graphics2D) graphics, Color.BLACK);
 
@@ -147,10 +147,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {  /
             graphics.setFont(new Font("serif", Font.BOLD, 20));
             graphics.drawString("Press Enter to Restart..", 230, 330);
 
-            //above score hiding
-            graphics.setColor(Color.black);
-            graphics.setFont(new Font("serif", Font.BOLD, 22));
-            graphics.drawString("Score: " + score + "/200", 490, 30);
+            gamePaint.aboveScoreHiding(score);
 
             //hide remains bricks
             mapPlay.draw((Graphics2D) graphics, Color.BLACK);
